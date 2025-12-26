@@ -1,0 +1,7 @@
+[2025-03-11 09:43:01] User -> User Add ->admin@pds| Requested JSON -> {"newusername":"arvind","district":"admin","newpassword":"@aarvi123"} | arvind
+[2025-03-11 09:45:17] User -> Block User ->admin@pds| Requested JSON -> {"uid":"67cfb84d2a742"} | arvind
+[2025-03-11 10:03:17] User -> Verify User ->admin@pds| Requested JSON -> {"uid":"67cfb84d2a742"} | arvind
+[2025-03-11 10:06:07] User -> Delete User ->admin@pds| Requested JSON -> {"uid":"67cfb84d2a742"} | arvind
+[2025-03-11 10:10:12] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello patidar ji","uniqueid":"6702bda0d3f59"} | Central@pds
+[2025-03-11 10:12:39] User -> Delete Message ->admin@pds| Requested JSON -> hello patidar ji | Central@pds
+[2025-03-11 11:02:44] User -> Cost for leg2 Added ->admin@pds| Requested JSON -> {"cost_h9rmAbawxgQyvC":"50000"} | 2024 | oct

@@ -1,0 +1,32 @@
+[2025-03-17 11:14:22] User -> District added ->admin@pds| Requested JSON ->{"name":"Demo"}
+[2025-03-17 11:14:50] User -> District deleted -> admin@pds| Requested JSON -> {"uid":"67d7b6b669b1b"} | Demo
+[2025-03-17 11:17:43] User -> User Add ->admin@pds| Requested JSON -> {"newusername":"Demo@pds","district":"Central","newpassword":"Demo"} | Demo@pds
+[2025-03-17 11:17:58] User -> Verify User ->admin@pds| Requested JSON -> {"uid":"67d7b77fb01b8"} | Demo@pds
+[2025-03-17 11:18:02] User -> Block User ->admin@pds| Requested JSON -> {"uid":"67d7b77fb01b8"} | Demo@pds
+[2025-03-17 11:18:07] User -> Delete User ->admin@pds| Requested JSON -> {"uid":"67d7b77fb01b8"} | Demo@pds
+[2025-03-17 11:20:43] {"id":"uFntZmFjwN8iFz"}
+[2025-03-17 11:20:43] User -> Cost for leg2 Reset ->admin@pds| Requested JSON -> {"id":"uFntZmFjwN8iFz"} | 
+[2025-03-17 11:20:47] User -> Cost for leg2 Added ->admin@pds| Requested JSON -> {"cost_uFntZmFjwN8iFz":"100"} | 2025 | march
+[2025-03-17 11:21:11] User -> Warehouse deleted -> admin@pds| Requested JSON -> {"uid":"all"} | all
+[2025-03-17 11:21:26] User -> Warehouse added ->admin@pds| Requested JSON -> {"name":"test","type":"motorable","latitude":"9.89","storage":"250","storage1":"100","district":"Central","id":"1230","warehousetype":"swc","longitude":"76.7661"}
+[2025-03-17 11:32:40] User -> Warehouse deleted -> admin@pds| Requested JSON -> {"uid":"all"} | all
+[2025-03-17 11:32:56] User -> Warehouse Added -> admin@pds| FSD Mayapuri
+[2025-03-17 11:32:56] User -> Warehouse Added -> admin@pds| FSD Okhla
+[2025-03-17 11:32:57] User -> Warehouse Added -> admin@pds| FSD CTO
+[2025-03-17 11:32:57] User -> Warehouse Added -> admin@pds| FSD ShaktiNagar
+[2025-03-17 11:32:57] User -> Warehouse Added -> admin@pds| FSD Ghevra
+[2025-03-17 11:32:57] User -> Warehouse Added -> admin@pds| FSD Narela
+[2025-03-17 11:33:14] User -> Warehouse Edit -> admin@pds| FSD Mayapuri
+[2025-03-17 11:33:14] User -> Warehouse Edit -> admin@pds| FSD Okhla
+[2025-03-17 11:33:14] User -> Warehouse Edit -> admin@pds| FSD CTO
+[2025-03-17 11:33:14] User -> Warehouse Edit -> admin@pds| FSD ShaktiNagar
+[2025-03-17 11:33:14] User -> Warehouse Edit -> admin@pds| FSD Ghevra
+[2025-03-17 11:33:14] User -> Warehouse Edit -> admin@pds| FSD Narela
+[2025-03-17 11:33:21] User -> Warehouse InActive -> admin@pds| Central
+[2025-03-17 11:33:27] User -> Warehouse Active -> admin@pds| Central
+[2025-03-17 11:33:28] User -> Warehouse InActive -> admin@pds| FSD ShaktiNagar
+[2025-03-17 11:33:30] User -> Warehouse Active -> admin@pds| FSD ShaktiNagar
+[2025-03-17 11:33:41] User -> Warehouse Edit->admin@pds| Requested JSON -> {"name":"FSD ShaktiNagar","uniqueid":"WH_67d7bb119b7e","active":"1","type":"motorable","latitude":"28.67797","storage":"14770","storage1":"9850","district":"Central","id":"W4","warehousetype":"swc","longitude":"77.192471"}
+[2025-03-17 11:34:37] User -> FPS InActive -> admin@pds| M/S VIR BHAN GANDHI
+[2025-03-17 11:34:38] User -> FPS Active -> admin@pds| M/S VIR BHAN GANDHI
+[2025-03-17 11:34:46] User -> FPS Edit->admin@pds| Requested JSON -> {"name":"M\/S VIR BHAN GANDHI","uniqueid":"FPS_6702d5b092e","active":"1","type":"Normal FPS","latitude":"28.6533962","longitude":"77.2718064","district":"Central","id":"100100600005","demand":"109.02","demand_rice":"72.68"}
