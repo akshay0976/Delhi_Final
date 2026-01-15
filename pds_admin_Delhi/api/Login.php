@@ -6,21 +6,40 @@ require ('../util/Encryption.php');
 $nonceValue = 'nonce_value';
 session_start();
 
+if(empty($_POST) || empty($_SESSION)){
+    die("Something went wrong");
+}
+
+if (empty($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("Something went wrong. Request denied.");
+}
+
+if (empty($_POST['captchainput']) ||$_SESSION['captcha'] !=  $_POST['captchainput']){
+	die("Please Check Captcha");
+}
+
 $person = new Login;
 $person->setUsername($_POST["username"]);
-$person->setPassword($_POST["password"]);
+$Encryption = new Encryption();
+$person->setPassword($Encryption->decrypt($_POST["password"], $nonceValue));
 
-$query = "SELECT * FROM login WHERE username='".$person->getUsername()."' AND password='".$person->getPassword()."'";
+
+$query = "SELECT * FROM login WHERE username='".$person->getUsername()."'";
 $result = mysqli_query($con,$query);
-$numrows = mysqli_num_rows($result);
+$row = mysqli_fetch_assoc($result);
 
-if($numrows == 0){
-	echo "Error : Password is incorrect";
-	exit();
+// if($numrows == 0){
+// 	echo "Error : Password is incorrect";
+// 	exit();
+// }
+if (empty($row)) {
+	die("Password or Username is incorrect");
 }
-else{
-	$row = mysqli_fetch_assoc($result);
+
+$dbHashedPassword = $row['password'];
+if(password_verify($person->getPassword(), $dbHashedPassword)){
 	if($row['role']=="admin"){
+		 session_regenerate_id(true);
 		$count = 1 + $row['count'];
 		$uniqueId = uniqid();
 		$authToken = md5($uniqueId);
@@ -33,10 +52,10 @@ else{
 		
 		mysqli_close($con);
 		echo "<script>window.location.href = '../Home.php';</script>";
-	}else{
-		echo "Error : You are not authorised to view this";
-		exit();
 	}
+	}
+else{
+    echo "Error : Password or Username is incorrect";
 }
 
 ?>

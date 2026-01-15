@@ -1,84 +1,5 @@
 {
-  "warehouse": [
-    {
-      "State Name": "",
-      "WH_District": "New Delhi",
-      "WH_Name": "FSD Mayapuri",
-      "WH_ID": "W1",
-      "Type of WH": "FCI",
-      "WH_Lat": "28.630149",
-      "WH_Long": "77.129568",
-      "Quantity_Wheat": "41810",
-      "Quantity_FRice": "29950",
-      "Owned/Rented": "",
-      "quantity of Wheat stored (Quintals)": ""
-    },
-    {
-      "State Name": "",
-      "WH_District": "South East",
-      "WH_Name": "FSD Okhla",
-      "WH_ID": "W2",
-      "Type of WH": "FCI",
-      "WH_Lat": "28.524",
-      "WH_Long": "77.283182",
-      "Quantity_Wheat": "25670",
-      "Quantity_FRice": "17110",
-      "Owned/Rented": "",
-      "quantity of Wheat stored (Quintals)": ""
-    },
-    {
-      "State Name": "",
-      "WH_District": "New Delhi",
-      "WH_Name": "FSD CTO",
-      "WH_ID": "W3",
-      "Type of WH": "FCI",
-      "WH_Lat": "28.632124",
-      "WH_Long": "77.153574",
-      "Quantity_Wheat": "28090",
-      "Quantity_FRice": "18730",
-      "Owned/Rented": "",
-      "quantity of Wheat stored (Quintals)": ""
-    },
-    {
-      "State Name": "",
-      "WH_District": "Central",
-      "WH_Name": "FSD ShaktiNagar",
-      "WH_ID": "W4",
-      "Type of WH": "FCI",
-      "WH_Lat": "28.67797",
-      "WH_Long": "77.192471",
-      "Quantity_Wheat": "14770",
-      "Quantity_FRice": "9850",
-      "Owned/Rented": "",
-      "quantity of Wheat stored (Quintals)": ""
-    },
-    {
-      "State Name": "",
-      "WH_District": "North West",
-      "WH_Name": "FSD Ghevra",
-      "WH_ID": "W5",
-      "Type of WH": "FCI",
-      "WH_Lat": "28.694594",
-      "WH_Long": "76.992368",
-      "Quantity_Wheat": "46280",
-      "Quantity_FRice": "30850",
-      "Owned/Rented": "",
-      "quantity of Wheat stored (Quintals)": ""
-    },
-    {
-      "State Name": "",
-      "WH_District": "North",
-      "WH_Name": "FSD Narela",
-      "WH_ID": "W6",
-      "Type of WH": "FCI",
-      "WH_Lat": "28.845738",
-      "WH_Long": "77.079208",
-      "Quantity_Wheat": "64630",
-      "Quantity_FRice": "40390",
-      "Owned/Rented": "",
-      "quantity of Wheat stored (Quintals)": ""
-    }
-  ],
+  "warehouse": [],
   "fps": [
     {
       "State Name": "",
@@ -1499,13 +1420,13 @@
     {
       "State Name": "",
       "FPS_District": "Central",
-      "FPS_Name": "M/S VIR BHAN GANDHI",
+      "FPS_Name": "Ms Vir Bhan Gandhi",
       "FPS_ID": "100100600005",
       "Motorable/Non-Motorable": "Normal FPS",
       "FPS_Lat": "28.6533962",
       "FPS_Long": "77.2718064",
-      "Allocation_Wheat": 109.02,
-      "Allocation_Rice": 72.68,
+      "Allocation_Wheat": 10.0,
+      "Allocation_Rice": 72.0,
       "FPS_Tehsil": ""
     },
     {
@@ -22866,6 +22787,102 @@
       "FPS_Long": "77.1864386",
       "Allocation_Wheat": 159.66,
       "Allocation_Rice": 106.44,
+      "FPS_Tehsil": ""
+    },
+    {
+      "State Name": "",
+      "FPS_District": "Central",
+      "FPS_Name": "Asdscccc",
+      "FPS_ID": "admin@pds",
+      "Motorable/Non-Motorable": "Model FPS",
+      "FPS_Lat": "11",
+      "FPS_Long": "12",
+      "Allocation_Wheat": 1212.0,
+      "Allocation_Rice": 121.0,
+      "FPS_Tehsil": ""
+    },
+    {
+      "State Name": "",
+      "FPS_District": "Central",
+      "FPS_Name": "Sdfsdfsd",
+      "FPS_ID": "33",
+      "Motorable/Non-Motorable": "Model FPS",
+      "FPS_Lat": "12",
+      "FPS_Long": "21",
+      "Allocation_Wheat": 332.0,
+      "Allocation_Rice": 23233.0,
+      "FPS_Tehsil": ""
+    },
+    {
+      "State Name": "",
+      "FPS_District": "Central",
+      "FPS_Name": "Sdfsdfddd",
+      "FPS_ID": "99",
+      "Motorable/Non-Motorable": "Model FPS",
+      "FPS_Lat": "12",
+      "FPS_Long": "11",
+      "Allocation_Wheat": 211.0,
+      "Allocation_Rice": 121.0,
+      "FPS_Tehsil": ""
+    },
+    {
+      "State Name": "",
+      "FPS_District": "Central",
+      "FPS_Name": "Terddd",
+      "FPS_ID": "77",
+      "Motorable/Non-Motorable": "Model FPS",
+      "FPS_Lat": "11",
+      "FPS_Long": "12",
+      "Allocation_Wheat": 323.0,
+      "Allocation_Rice": 231.0,
+      "FPS_Tehsil": ""
+    },
+    {
+      "State Name": "",
+      "FPS_District": "Central",
+      "FPS_Name": "Akshay",
+      "FPS_ID": "97",
+      "Motorable/Non-Motorable": "Model FPS",
+      "FPS_Lat": "12",
+      "FPS_Long": "10",
+      "Allocation_Wheat": 122.0,
+      "Allocation_Rice": 2332.0,
+      "FPS_Tehsil": ""
+    },
+    {
+      "State Name": "",
+      "FPS_District": "Central",
+      "FPS_Name": "Lehdgfcd",
+      "FPS_ID": "322",
+      "Motorable/Non-Motorable": "Model FPS",
+      "FPS_Lat": "12",
+      "FPS_Long": "10",
+      "Allocation_Wheat": 1212.0,
+      "Allocation_Rice": 89.0,
+      "FPS_Tehsil": ""
+    },
+    {
+      "State Name": "",
+      "FPS_District": "Ribhoi",
+      "FPS_Name": "Akshaydfdf",
+      "FPS_ID": "7777",
+      "Motorable/Non-Motorable": "Model FPS",
+      "FPS_Lat": "12",
+      "FPS_Long": "10",
+      "Allocation_Wheat": 56767.0,
+      "Allocation_Rice": 11.12,
+      "FPS_Tehsil": ""
+    },
+    {
+      "State Name": "",
+      "FPS_District": "Central",
+      "FPS_Name": "Akshay",
+      "FPS_ID": "66",
+      "Motorable/Non-Motorable": "Model FPS",
+      "FPS_Lat": "12",
+      "FPS_Long": "10",
+      "Allocation_Wheat": 56767.0,
+      "Allocation_Rice": 2332.0,
       "FPS_Tehsil": ""
     }
   ]

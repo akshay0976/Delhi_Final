@@ -1,0 +1,12 @@
+[2026-01-13 14:49:30] User -> Warehouse deleted -> admin@pds| Requested JSON -> {"uid":"WH_694e71640131"} | Akshay
+[2026-01-13 15:20:40] User -> DCP added ->fci@pds| Requested JSON -> {"name":"fg","type":"dg","latitude":"12","longitude":"11","district":"Central","id":"11","demand":"212","demand_rice":"121"}
+[2026-01-13 15:20:45] User -> DCP InActive -> fci@pds| fg
+[2026-01-13 15:20:45] User -> DCP Active -> fci@pds| fg
+[2026-01-13 15:21:22] User -> DCP Edit ->fci@pds| Requested JSON -> {"name":"fgdgh","uniqueid":"DCP_69661570e2f","active":"1","type":"dg","latitude":"12","longitude":"11","district":"Central","id":"11","demand":"212","demand_rice":"121"}
+[2026-01-13 15:23:09] User -> DCP added ->fci@pds| Requested JSON -> {"name":"zdfgbg","type":"dfdf","latitude":"11","longitude":"12","district":"Central","id":"12","demand":"122","demand_rice":"1211"}
+[2026-01-13 15:23:23] User -> DCP deleted -> fci@pds| Requested JSON -> {"uid":"DCP_69661605afa"} | zdfgbg
+[2026-01-13 15:23:30] User -> DCP deleted -> fci@pds| Requested JSON -> {"uid":"all"} | all
+[2026-01-13 15:23:41] User -> DCP Added -> fci@pds| Fgdgh
+[2026-01-13 15:23:51] User -> DCP Edit -> fci@pds| Fgdgh
+[2026-01-13 15:23:59] User -> DCP InActive -> fci@pds| Central
+[2026-01-13 15:24:09] User -> DCP Active -> fci@pds| Central

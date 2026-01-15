@@ -181,6 +181,7 @@ def extract_db():
         wh = wh.loc[:,["State Name","WH_District",'WH_Name',"WH_ID","Type of WH",'WH_Lat',"WH_Long","Quantity_Wheat","Quantity_FRice"]]
         fps = fps.loc[:,["State Name","FPS_District",'FPS_Name',"FPS_ID","Motorable/Non-Motorable",'FPS_Lat',"FPS_Long","Allocation_Wheat","Allocation_Rice","FPS_Tehsil"]]
 
+
         # Rename the columns to make them valid Python identifiers
         column_mapping = {
             'Type of WH': 'Type of WH ( SWC, CWC, FCI, CAP, other)',
@@ -309,6 +310,7 @@ def extract_data():
                 wh = wh.loc[:,["From ID","From name",'from district',"from lat","from long","commodity","quantity"]]
                 fci = fci.loc[:,["State Name","WH_District",'WH_Name',"WH_ID","Type of WH",'WH_Lat',"WH_Long","Storage_Capacity"]]    
 
+
                 column_mapping = {
                             'From ID': 'SW_ID',
                             'From name': 'SW_Name',
@@ -353,7 +355,7 @@ def extract_data():
     else:
         return {"success": 0, "message": "Invalid request method"}
         
-@app.route('/fetchdatafromsql', methods=['GET'])        
+@app.route('/fetchdatafromsql', methods=['GET'])      
 def fetch_data_from_sql():
     if request.method == 'GET':
         connection = connect_to_database()

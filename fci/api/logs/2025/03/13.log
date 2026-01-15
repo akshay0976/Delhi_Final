@@ -1,0 +1,22 @@
+[2025-03-13 11:33:57] User -> Cost for leg2 Added ->admin@pds| Requested JSON -> {"cost_uFntZmFjwN8iFz":"100"} | 2025 | march
+[2025-03-13 11:34:00] {"id":"uFntZmFjwN8iFz"}
+[2025-03-13 11:34:00] User -> Cost for leg2 Reset ->admin@pds| Requested JSON -> {"id":"uFntZmFjwN8iFz"} | 
+[2025-03-13 11:34:05] User -> Cost for leg2 Added ->admin@pds| Requested JSON -> {"cost_uFntZmFjwN8iFz":"1000"} | 2025 | march
+[2025-03-13 11:44:15] User -> District added ->admin@pds| Requested JSON ->{"name":"demo"}
+[2025-03-13 11:44:56] User -> District Name Edit->admin@pds| Requested JSON -> {"name":"Test","uid":"'67d277b7703e4'"}
+[2025-03-13 11:46:02] User -> District Name Edit->admin@pds| Requested JSON -> {"name":"Aman","uid":"'67d277b7703e4'"}
+[2025-03-13 11:46:37] User -> District Name Edit->admin@pds| Requested JSON -> {"name":"Aman","uid":"'67d277b7703e4'"}
+[2025-03-13 11:46:57] User -> District Name Edit->admin@pds| Requested JSON -> {"name":"Demo","uid":"'67d277b7703e4'"}
+[2025-03-13 11:47:02] User -> District deleted -> admin@pds| Requested JSON -> {"uid":"67d277b7703e4"} | Demo
+[2025-03-13 11:51:51] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | Central@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | East@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | New Delhi@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | North@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | North East@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | North West@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | Shahdara@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | South@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | South East@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | South West@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | West@pds
+[2025-03-13 11:51:52] User -> Send Message ->admin@pds| Requested JSON -> {"message":"hello","uniqueid":"all"} | West@pds

@@ -15,6 +15,10 @@ $storage = "";
 $storage1 = "";
 $active = "";
 
+if(empty($_POST)){
+    die("Something went wrong.");
+}
+
 if(isset($_POST["uid"])){
 	$uniqueid = $_POST["uid"];
 	$query = "SELECT * FROM warehouse WHERE uniqueid='$uniqueid'";
@@ -42,6 +46,18 @@ else{
 }
 
 ?>
+<script src="crypto-js/crypto-js.js"></script>
+<script src="js/Encryption.js"></script>
+
+<script>
+	function verifyCaptcha() {
+		var readableString = document.getElementById("password").value;
+		var nonceValue = "nonce_value";
+		let encryption = new Encryption();
+		var encrypted = encryption.encrypt(readableString, nonceValue);
+		document.getElementById("password").value = encrypted;
+	}
+</script>
 
 <script>
 	function setSelectedValue(obj_value,valueToSet) {
@@ -141,7 +157,7 @@ else{
                                                 </div>
                                             </div>
 											<div class="form-group">
-                                                <label class="col-md-3 control-label">FRie in Quintals*</label>
+                                                <label class="col-md-3 control-label">FRice in Quintals*</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-info"></span></span>
@@ -250,7 +266,7 @@ else{
 											
                                         </div>
 										
-										<center><button class="btn btn-primary">Verify</button></center>
+										<center><button class="btn btn-primary" onclick="verifyCaptcha()">Verify</button></center>
 								</div>
                             </div>
                             </form>

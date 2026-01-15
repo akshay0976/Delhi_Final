@@ -15,6 +15,8 @@ td {
 	color: black;
 }
 </style>
+<script src="crypto-js/crypto-js.js"></script>
+<script src="js/Encryption.js"></script>
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
@@ -56,8 +58,8 @@ td {
 												<th style="font-size:16px">Model FPS/Normal FPS</th>
 												<th style="font-size:16px">Latitude</th>
 												<th style="font-size:16px">Longitude</th>
-												<th style="font-size:16px">Demand of Wheat(Qtl)</th>
 												<th style="font-size:16px">Demand of FRice(Qtl)</th>
+												<th style="font-size:16px">Demand of Rice(Qtl)</th>
 												<th style="font-size:16px">Status</th>
 												<th style="font-size:16px">Change Status</th>
                                                 <th style="font-size:16px">Edit</th>
@@ -67,7 +69,7 @@ td {
                                         <tbody>
 										<?php
 										
-										$query = "SELECT * FROM fps WHERE district='$district'";
+										$query = "SELECT * FROM fps WHERE LOWER(district)=LOWER('$district')";
 										$result = mysqli_query($con,$query);
 										$numrows = mysqli_num_rows($result);
 										while($row = mysqli_fetch_array($result))
@@ -225,7 +227,10 @@ td {
 			var username = document.getElementById('username').value;
 			var password = document.getElementById('password').value;
 			var temp_id = document.getElementById('deleteid').value;
-			post({uid: temp_id,username:username,password:password} ,"api/FPSDelete.php");
+			var nonceValue = "nonce_value";
+		let encryption = new Encryption();
+		var encrypted = encryption.encrypt(password, nonceValue);
+			post({uid: temp_id,username:username,password:encrypted} ,"api/FPSDelete.php");
 		}
 		
 		function hidePopup() {

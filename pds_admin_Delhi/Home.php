@@ -12,46 +12,46 @@ require('util/Logger.php');
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 	.multiselect {
-	  width: 200px;
-	  z-index: 2;
+		width: 200px;
+		z-index: 2;
 	}
 
 	.selectBox {
-	  position: relative;
-	  z-index: 3;
+		position: relative;
+		z-index: 3;
 	}
 
 	.selectBox select {
-	  width: 100%;
-	  font-weight: bold;
-	  z-index: 4;
+		width: 100%;
+		font-weight: bold;
+		z-index: 4;
 	}
 
 	.overSelect {
-	  position: absolute;
-	  left: 0;
-	  right: 0;
-	  top: 0;
-	  bottom: 0;
-	  z-index: 5;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		z-index: 5;
 	}
 
 	#checkboxes {
-	  display: none;
-	  border: 1px #dadada solid;
-	  color:#000;
-	  z-index: 6;
+		display: none;
+		border: 1px #dadada solid;
+		color: #000;
+		z-index: 6;
 	}
 
 	#checkboxes label {
-	  display: block;
-	  color:#000;
-	  z-index: 7;
+		display: block;
+		color: #000;
+		z-index: 7;
 	}
 
 	#checkboxes label:hover {
-	  background-color: #1e90ff;
-	  z-index: 7;
+		background-color: #1e90ff;
+		z-index: 7;
 	}
 
 	#processingPopup {
@@ -245,149 +245,161 @@ require('util/Logger.php');
 		padding: 2px 10px;
 		/* Apply padding to the button */
 	}
+
 	#optimisedtable th {
-    text-align: center; /* Center-align the text within table headers */
-}
-*{
-      box-sizing: border-box;
-    }
+		text-align: center;
+		/* Center-align the text within table headers */
+	}
 
-    button {
-      outline: none;
-      cursor: pointer;
-    }
+	* {
+		box-sizing: border-box;
+	}
 
-    .icon {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      fill: currentColor;
-    }
+	button {
+		outline: none;
+		cursor: pointer;
+	}
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 16px;
-      color: #fff;
-      background: linear-gradient(to right, #566a39 0%, #75986f 100%);
-    }
+	.icon {
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		fill: currentColor;
+	}
+
+	body {
+		font-family: 'Open Sans', sans-serif;
+		font-size: 16px;
+		color: #fff;
+		background: linear-gradient(to right, #566a39 0%, #75986f 100%);
+	}
 
 	.button-wrapper {
-  position: relative;
-  display: inline-block;
-  padding: 2px 3px; /* Adjust padding */
-  min-width: 10px; /* Adjust minimum width */
-  min-height: 40px; /* Adjust minimum height */
-  border-radius: 15px; /* Adjust border-radius */
-  box-shadow: 0px -1px 1px rgba(255, 255, 255, 0.22), inset 0px -1px 3px rgba(0, 0, 0, 0.2);
-}
+		position: relative;
+		display: inline-block;
+		padding: 2px 3px;
+		/* Adjust padding */
+		min-width: 10px;
+		/* Adjust minimum width */
+		min-height: 40px;
+		/* Adjust minimum height */
+		border-radius: 15px;
+		/* Adjust border-radius */
+		box-shadow: 0px -1px 1px rgba(255, 255, 255, 0.22), inset 0px -1px 3px rgba(0, 0, 0, 0.2);
+	}
 
-.button {
-  position: relative;
-  height: 40px; /* Adjust height */
-  min-width: 5px; /* Adjust minimum width */
-  padding: 0 5px; /* Adjust padding */
-  border-radius: 15px; /* Adjust border-radius */
-  background: #ff005a;
-  background: linear-gradient(#ff4184 0%, #ff005a 100%, #ff005a);
-  border: none;
-  font-size: 10px; /* Adjust font size */
-  color: white;
-  line-height: 40px; /* Adjust line height */
-  font-weight: 700;
-}
+	.button {
+		position: relative;
+		height: 40px;
+		/* Adjust height */
+		min-width: 5px;
+		/* Adjust minimum width */
+		padding: 0 5px;
+		/* Adjust padding */
+		border-radius: 15px;
+		/* Adjust border-radius */
+		background: #ff005a;
+		background: linear-gradient(#ff4184 0%, #ff005a 100%, #ff005a);
+		border: none;
+		font-size: 10px;
+		/* Adjust font size */
+		color: white;
+		line-height: 40px;
+		/* Adjust line height */
+		font-weight: 700;
+	}
 
 
-    .button__text {
-      position: relative;
-      display: block;
-      height: 114px;
-      white-space: nowrap;
-      opacity: 1;
-    }
+	.button__text {
+		position: relative;
+		display: block;
+		height: 114px;
+		white-space: nowrap;
+		opacity: 1;
+	}
 
-    .button__text--download {
-      width: 150px;
-      transition: opacity 0.5s ease, width 0.5s ease;
+	.button__text--download {
+		width: 150px;
+		transition: opacity 0.5s ease, width 0.5s ease;
 
-      &.is_animated {
-        overflow: hidden;
-        width: 0px;
-        opacity: 0;
-      }
-    }
+		&.is_animated {
+			overflow: hidden;
+			width: 0px;
+			opacity: 0;
+		}
+	}
 
-    .button__text--progress {
-      margin-right: -35px;
-      margin-left: -35px;
-      width: 114px;
-      font-size: 40px;
-      opacity: 0;
-      transition: opacity 0.5s ease;
+	.button__text--progress {
+		margin-right: -35px;
+		margin-left: -35px;
+		width: 114px;
+		font-size: 40px;
+		opacity: 0;
+		transition: opacity 0.5s ease;
 
-      sub {
-        font-size: .5em;
-        font-weight: normal;
-      }
+		sub {
+			font-size: .5em;
+			font-weight: normal;
+		}
 
-      &.is_animated {
-        opacity: 1;
-      }
-    }
+		&.is_animated {
+			opacity: 1;
+		}
+	}
 
-    .button__text--complete {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 999;
-      border-radius: 50%;
-      height: 114px;
-      width: 114px;
-      box-shadow: inset 0px -1px 6px 0px rgba(255, 255, 255, 0.73);
-      background: #3acaff;
-      transform: scale(1.5);
-      transition: transform 0.5s ease;
+	.button__text--complete {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 999;
+		border-radius: 50%;
+		height: 114px;
+		width: 114px;
+		box-shadow: inset 0px -1px 6px 0px rgba(255, 255, 255, 0.73);
+		background: #3acaff;
+		transform: scale(1.5);
+		transition: transform 0.5s ease;
 
-      &.is_animated {
-        transform: scale(1);
-      }
-    }
+		&.is_animated {
+			transform: scale(1);
+		}
+	}
 
-    .button__icon--cloud-download,
-    .button__icon--checkmark {
-      position: relative;
-      top: 7px;
-    }
+	.button__icon--cloud-download,
+	.button__icon--checkmark {
+		position: relative;
+		top: 7px;
+	}
 
-    .pie-loader {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 160px;
-      height: 160px;
-      opacity: 1;
-      transition: opacity 0.1s ease;
+	.pie-loader {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 160px;
+		height: 160px;
+		opacity: 1;
+		transition: opacity 0.1s ease;
 
-      svg {
-        width: 100%;
-        height: 100%;
-      }
+		svg {
+			width: 100%;
+			height: 100%;
+		}
 
-      circle {
-        fill: #3acaff;
-        stroke: #3acaff;
-        stroke-width: 80px;
-        stroke-dasharray: 0 252;
-        transition: all 0.1s linear;
-      }
+		circle {
+			fill: #3acaff;
+			stroke: #3acaff;
+			stroke-width: 80px;
+			stroke-dasharray: 0 252;
+			transition: all 0.1s linear;
+		}
 
-      &.is_hidden {
-        opacity: 0;
-      } 
-    }
-.btn btn-success pull-right{
-	
-}
+		&.is_hidden {
+			opacity: 0;
+		}
+	}
+
+	.btn btn-success pull-right {}
 </style>
 
 <!-- START BREADCRUMB -->
@@ -397,7 +409,7 @@ require('util/Logger.php');
 </ul>
 <!-- END BREADCRUMB -->
 <div>
-	
+
 </div>
 
 <!-- PAGE CONTENT WRAPPER -->
@@ -420,28 +432,30 @@ require('util/Logger.php');
 				<div class="col-md-3">
 					<div class="form-group">
 						<div class="col-md-2"></div>
-						<div class="col-md-9">  
-							<div class="input-group" style="width:100%;">					
-							<select class="form-control" id="type" name="type" style="border-radius:5px;font-weight:bold">
-								<option value='' style="font-weight:bold;color:#000;">Select</option>
-								<option value='inter' style="font-weight:bold;color:#000;">Inter District</option>
-								<option value='intra' style="font-weight:bold;color:#000;">Intra District</option>
-							</select>
+						<div class="col-md-9">
+							<div class="input-group" style="width:100%;">
+								<select class="form-control" id="type" name="type"
+									style="border-radius:5px;font-weight:bold">
+									<option value='' style="font-weight:bold;color:#000;">Select</option>
+									<option value='inter' style="font-weight:bold;color:#000;">Inter District</option>
+									<option value='intra' style="font-weight:bold;color:#000;">Intra District</option>
+								</select>
 							</div>
 							<span class="help-block">Select scenario for Optimisation</span>
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="col-md-3">
 					<div class="form-group">
 						<div class="col-md-2"></div>
-						<div class="col-md-9">  
-							<div class="input-group" style="width:100%;">					
-							<select class="form-control" id="year" name="year" style="border-radius:5px;font-weight:bold">
-								<option value='' style="font-weight:bold;color:#000;">Select</option>
-								
-							</select>
+						<div class="col-md-9">
+							<div class="input-group" style="width:100%;">
+								<select class="form-control" id="year" name="year"
+									style="border-radius:5px;font-weight:bold">
+									<option value='' style="font-weight:bold;color:#000;">Select</option>
+
+								</select>
 							</div>
 							<span class="help-block">Selected Year</span>
 						</div>
@@ -452,66 +466,68 @@ require('util/Logger.php');
 					<div class="form-group">
 						<div class="col-md-2"></div>
 						<div class="col-md-9">
-							<div class="input-group" style="width:100%;">				
-							<select class="form-control" id="month" name="month" style="border-radius:5px;font-weight:bold">
-								<option value='' style="font-weight:bold;color:#000;">Select</option>
-								<option value='jan' style="font-weight:bold;color:#000;">January</option>
-								<option value='feb' style="font-weight:bold;color:#000;">February</option>
-								<option value='march' style="font-weight:bold;color:#000;">March</option>
-								<option value='april' style="font-weight:bold;color:#000;">April</option>
-								<option value='may' style="font-weight:bold;color:#000;">May</option>
-								<option value='june' style="font-weight:bold;color:#000;">June</option>
-								<option value='july' style="font-weight:bold;color:#000;">July</option>
-								<option value='aug' style="font-weight:bold;color:#000;">August</option>
-								<option value='sept' style="font-weight:bold;color:#000;">September</option>
-								<option value='oct' style="font-weight:bold;color:#000;">October</option>
-								<option value='nov' style="font-weight:bold;color:#000;">November</option>
-								<option value='dec' style="font-weight:bold;color:#000;">December</option>
-							</select>
+							<div class="input-group" style="width:100%;">
+								<select class="form-control" id="month" name="month"
+									style="border-radius:5px;font-weight:bold">
+									<option value='' style="font-weight:bold;color:#000;">Select</option>
+									<option value='jan' style="font-weight:bold;color:#000;">January</option>
+									<option value='feb' style="font-weight:bold;color:#000;">February</option>
+									<option value='march' style="font-weight:bold;color:#000;">March</option>
+									<option value='april' style="font-weight:bold;color:#000;">April</option>
+									<option value='may' style="font-weight:bold;color:#000;">May</option>
+									<option value='june' style="font-weight:bold;color:#000;">June</option>
+									<option value='july' style="font-weight:bold;color:#000;">July</option>
+									<option value='aug' style="font-weight:bold;color:#000;">August</option>
+									<option value='sept' style="font-weight:bold;color:#000;">September</option>
+									<option value='oct' style="font-weight:bold;color:#000;">October</option>
+									<option value='nov' style="font-weight:bold;color:#000;">November</option>
+									<option value='dec' style="font-weight:bold;color:#000;">December</option>
+								</select>
 							</div>
 							<span class="help-block">Selected Month</span>
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="col-md-3">
 					<div class="form-group">
 						<div class="col-md-2"></div>
 						<div class="col-md-9">
-							 <div class="multiselect">
+							<div class="multiselect">
 								<div class="selectBox" onclick="showCheckboxes()">
-								  <select class="form-control" >
-									<option>Select an option</option>
-								  </select>
-								  <div class="overSelect"></div>
+									<select class="form-control">
+										<option>Select an option</option>
+									</select>
+									<div class="overSelect"></div>
 								</div>
-								<div id="checkboxes"  style="z-index:999;background-color:#fff;position: absolute;width:100%;" >
+								<div id="checkboxes"
+									style="z-index:999;background-color:#fff;position: absolute;width:100%;">
 									<label for="jan">
-									&nbsp <input type="checkbox" id="jan" value="jan" style /> January</label>
+										&nbsp <input type="checkbox" id="jan" value="jan" style /> January</label>
 									<label for="feb">
-									&nbsp <input type="checkbox" id="feb" value="feb" /> February</label>
+										&nbsp <input type="checkbox" id="feb" value="feb" /> February</label>
 									<label for="march">
-									&nbsp <input type="checkbox" id="march" value="march" /> March</label>
+										&nbsp <input type="checkbox" id="march" value="march" /> March</label>
 									<label for="april">
-									&nbsp <input type="checkbox" id="april" value="april" /> April</label>
+										&nbsp <input type="checkbox" id="april" value="april" /> April</label>
 									<label for="may">
-									&nbsp <input type="checkbox" id="may" value="may" /> May</label>
+										&nbsp <input type="checkbox" id="may" value="may" /> May</label>
 									<label for="june">
-									&nbsp <input type="checkbox" id="june" value="june" /> June</label>
+										&nbsp <input type="checkbox" id="june" value="june" /> June</label>
 									<label for="july">
-									&nbsp <input type="checkbox" id="july" value="july" /> July</label>
+										&nbsp <input type="checkbox" id="july" value="july" /> July</label>
 									<label for="aug">
-									&nbsp <input type="checkbox" id="aug" value="aug" /> August</label>
+										&nbsp <input type="checkbox" id="aug" value="aug" /> August</label>
 									<label for="sept">
-									&nbsp <input type="checkbox" id="sept" value="sept" /> September</label>
+										&nbsp <input type="checkbox" id="sept" value="sept" /> September</label>
 									<label for="oct">
-									&nbsp <input type="checkbox" id="oct" value="oct" /> October</label>
+										&nbsp <input type="checkbox" id="oct" value="oct" /> October</label>
 									<label for="nov">
-									&nbsp <input type="checkbox" id="nov" value="nov" /> November</label>
+										&nbsp <input type="checkbox" id="nov" value="nov" /> November</label>
 									<label for="dec">
-									&nbsp <input type="checkbox" id="dec" value="dec" /> December</label>
+										&nbsp <input type="checkbox" id="dec" value="dec" /> December</label>
 								</div>
-							  </div>
+							</div>
 							<span class="help-block">Applicable Month</span>
 						</div>
 					</div>
@@ -522,18 +538,23 @@ require('util/Logger.php');
 				<div class="col-md-12">
 					<div class="panel-body">
 
-						<form action="" method="POST" class="form-horizontal" enctype="multipart/form-data" id="upload_button">
-								
-								<div class="row">
-									<div class="col-md-8">
-										<input style="font-size: 18px; padding: 10px 16px;" type="button" class="btn btn-success pull-right" onclick="fetchFromDb()" value="Fetch Data from Database" />
-									</div>
+						<form action="" method="POST" class="form-horizontal" enctype="multipart/form-data"
+							id="upload_button">
+
+							<div class="row">
+								<div class="col-md-8">
+									<input style="font-size: 18px; padding: 10px 16px;" type="button"
+										class="btn btn-success pull-right" onclick="fetchFromDb()"
+										value="Fetch Data from Database" />
 								</div>
+							</div>
 							<!-- </div> -->
 						</form>
 						<div id="processingPopup">
 							<div class="spinner"></div>
-							<button type="button" style="margin-top:100px;margin-left:-80px;display:none" id="cancel-request" class="btn btn-danger" onClick="cancelRequest()">Cancel Request</button>
+							<button type="button" style="margin-top:100px;margin-left:-80px;display:none"
+								id="cancel-request" class="btn btn-danger" onClick="cancelRequest()">Cancel
+								Request</button>
 						</div>
 						&nbsp
 						<div class="row">
@@ -564,7 +585,7 @@ require('util/Logger.php');
 									</div>
 								</div>
 								<br><br><br><br><br>
-								
+
 								<div class="col-md-3 mb-4">
 									<div class="card h-100"
 										style="background-color:#FFC167; color:white; padding:12px; font-weight: bold;">
@@ -579,7 +600,7 @@ require('util/Logger.php');
 										<div style="font-size:14px">Total FPS Demands Wheat (Qtl)</div>
 									</div>
 								</div>
-								
+
 								<div class="col-md-3 mb-4">
 									<div class="card h-100"
 										style="background-color:#E29B40; color:white; padding:12px; font-weight: bold;">
@@ -601,8 +622,8 @@ require('util/Logger.php');
 
 				</div>
 				<div class="col-md-9">
-				
-				
+
+
 					</br></br></br>
 					<center>
 						<div style="width:80%"><canvas id="myChart" width="400" height="300"></canvas></div>
@@ -624,7 +645,9 @@ require('util/Logger.php');
 									<h2><b><span style="color: white;">Pre-Analysis</span></b></h2>
 								</center>
 								<center style="margin-top:20px">
-									<h4><b><span style="color: white;">State-Wise &nbsp <input type="checkbox" id="statewiseCheckbox" onchange="handleStateCheckboxChange()" checked  /></b></h4>
+									<h4><b><span style="color: white;">State-Wise &nbsp <input type="checkbox"
+													id="statewiseCheckbox" onchange="handleStateCheckboxChange()"
+													checked /></b></h4>
 								</center>
 								<center style="margin-top: 20px; font-weight: 500; color: white;">
 									<h4><b id="totalFciSupply"></b></h4>
@@ -639,10 +662,12 @@ require('util/Logger.php');
 									<h4><b id="result"></b></h4>
 								</center>
 								<div id="districtcheckbox" style="display:none">
-								<center style="margin-top:20px;">
-										<h4><b><span style="color: white;">District-wise Supply and Demand &nbsp <input type="checkbox" id="districtwiseCheckbox" onchange="handleDistrictCheckboxChange()" /></b></h4>
+									<center style="margin-top:20px;">
+										<h4><b><span style="color: white;">District-wise Supply and Demand &nbsp <input
+														type="checkbox" id="districtwiseCheckbox"
+														onchange="handleDistrictCheckboxChange()" /></b></h4>
 									</center>
-									
+
 									<center style="margin-top:20px">
 										<h4><b id="resultdistrict"></b></h4>
 									</center>
@@ -656,40 +681,42 @@ require('util/Logger.php');
 			</br>
 
 			<div id="generateoptinizedplanbutton" style="display:none; overflow: hidden;">
-				<center><div style="font-size: 20px; font-weight: 700; margin-top: 10px; margin-bottom: 20px;color:#000">
-					<i class="fa fa-info-circle" aria-hidden="true"></i> Optimisation
-				</div></center>
-			
-					<button class="upload_button_class" id="upload_button" name="submit">
-						<span style="text-align: center; font-weight: bold;">Generate Optimise Plan</span>
-						<a href="#" class="toggle toggle--off"  data-content="Off" onclick="toggleState(this)"></a>
-					</button>
-					<!--<center><img id="level5Image" src="Backend/plantuml_file.png" alt="Plan Image" style="display:none;width:35%;margin-top:40px"></center>-->
-                        <div style="margin-top: 13px;margin-left: 1300px;"> 
-						<div class="pen-wrapper">
-							<div class="button-wrapper">
-							</div>
+				<center>
+					<div style="font-size: 20px; font-weight: 700; margin-top: 10px; margin-bottom: 20px;color:#000">
+						<i class="fa fa-info-circle" aria-hidden="true"></i> Optimisation
+					</div>
+				</center>
+
+				<button class="upload_button_class" id="upload_button" name="submit">
+					<span style="text-align: center; font-weight: bold;">Generate Optimise Plan</span>
+					<a href="#" class="toggle toggle--off" data-content="Off" onclick="toggleState(this)"></a>
+				</button>
+				<!--<center><img id="level5Image" src="Backend/plantuml_file.png" alt="Plan Image" style="display:none;width:35%;margin-top:40px"></center>-->
+				<div style="margin-top: 13px;margin-left: 1300px;">
+					<div class="pen-wrapper">
+						<div class="button-wrapper">
 						</div>
 					</div>
+				</div>
 				<br><br>
-					<table class="table" id="optimisedtable" style="display: none; width: 100%; text-align: center;">
-						<thead>
-							<tr>
-								<th>Scenario</th>
-								<th>WH_Used</th>
-								<th>FPS_Used</th>
-								<th>Total_Allocation</th>
-								<th>Total_QKM</th>
-								<th>Average Distance</th>
-							</tr>
-						</thead>
-						<tbody id="table_body">
-							<!-- Table body content -->
-						</tbody>
-					</table>
-					
-				
-				
+				<table class="table" id="optimisedtable" style="display: none; width: 100%; text-align: center;">
+					<thead>
+						<tr>
+							<th>Scenario</th>
+							<th>WH_Used</th>
+							<th>FPS_Used</th>
+							<th>Total_Allocation</th>
+							<th>Total_QKM</th>
+							<th>Average Distance</th>
+						</tr>
+					</thead>
+					<tbody id="table_body">
+						<!-- Table body content -->
+					</tbody>
+				</table>
+
+
+
 			</div>
 			&nbsp;<br><br><br>
 
@@ -761,7 +788,7 @@ require('util/Logger.php');
 	}
 	checkServerStatus();
 	setInterval(checkServerStatus, 10000);
-	
+
 	function formatNumberWithCommas(value) {
 		const formattedNumber = Number(value).toFixed(2);
 
@@ -776,21 +803,21 @@ require('util/Logger.php');
 		// Combine the integer and decimal parts and return the formatted number
 		return integerPart + '.' + decimalPart;
 	}
-	
+
 	function formatNumberWithCommasWithoutDecimal(value) {
 		const roundedNumber = Math.round(value);
 
 		// Separate the integer and decimal parts
 		const parts = roundedNumber.toString().split('.');
 		let integerPart = parts[0];
-  
+
 		// Add commas every three digits from the right in the integer part
 		integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-	  
+
 		// Return the formatted number
 		return integerPart;
 	}
-	
+
 
 	function toggleState(element) {
 		if (element.classList.contains('toggle--off')) {
@@ -803,7 +830,7 @@ require('util/Logger.php');
 			element.setAttribute('data-content', 'Off');
 		}
 	}
-	
+
 	function post(params, file) {
 
 		method = "post";
@@ -861,53 +888,53 @@ require('util/Logger.php');
 			}
 		}
 	});
-	
+
 	var district_names = [];
-	
-	function fetchFromDb(){
+
+	function fetchFromDb() {
 		var applicableLength = 1;
 		$.ajax({
 			type: "POST",
 			url: "api/fetchTableData.php",
 			data: "",
 			cache: false,
-			error: function(){
+			error: function () {
 				alert("timeout");
 			},
 			timeout: 120000,
-			success: function(result){
-				
-				try{
-					if(firstStart==0){
+			success: function (result) {
+
+				try {
+					if (firstStart == 0) {
 						var resultarray = JSON.parse(result);
 						var monthsString = resultarray[0]["applicable"];
 						var monthsArray = monthsString.split(',');
 						applicableLength = monthsArray.length;
 						var dropdownMultiple = document.querySelectorAll('#checkboxes input[type="checkbox"]');
 						for (const fillMonth of monthsArray) {
-							dropdownMultiple.forEach(function(checkbox) {
-							  checkbox.checked = false;
+							dropdownMultiple.forEach(function (checkbox) {
+								checkbox.checked = false;
 							});
 						}
 						for (const fillMonth of monthsArray) {
-							dropdownMultiple.forEach(function(checkbox) {
-							  if (checkbox.value===fillMonth) {
-								checkbox.checked = true;
-							  }
+							dropdownMultiple.forEach(function (checkbox) {
+								if (checkbox.value === fillMonth) {
+									checkbox.checked = true;
+								}
 							});
 						}
 					}
-					else{
+					else {
 						applicableLength = 0;
 						var dropdownMultiple = document.querySelectorAll('#checkboxes input[type="checkbox"]');
-						dropdownMultiple.forEach(function(checkbox) {
-						  if (checkbox.checked==true) {
-							applicableLength = applicableLength + 1;
-							
-						  }
+						dropdownMultiple.forEach(function (checkbox) {
+							if (checkbox.checked == true) {
+								applicableLength = applicableLength + 1;
+
+							}
 						});
 					}
-					applicableLength = Math.max(applicableLength,1);
+					applicableLength = Math.max(applicableLength, 1);
 					document.getElementById("districtcheckbox").style.display = "none";
 					document.getElementById("result").innerHTML = "";
 					document.getElementById("totalFciDemand").innerHTML = "";
@@ -945,13 +972,13 @@ require('util/Logger.php');
 									document.getElementById("total_supply_frice").innerHTML = formatNumberWithCommasWithoutDecimal(data["Total_Supply_Frice"]);
 									document.getElementById("total_district").innerHTML = formatNumberWithCommasWithoutDecimal(data["District_Count"]);
 									document.getElementById("processingPopup").style.display = "none";
-									
-									if(firstStart==0){
+
+									if (firstStart == 0) {
 										document.getElementById("statewiseCheckbox").checked = true;
 										handleStateCheckboxChange();
 									}
 									var type = document.getElementById("type").value;
-									if(type=="inter"){
+									if (type == "inter") {
 										document.getElementById("districtcheckbox").style.display = "none";
 									}
 								})
@@ -969,22 +996,22 @@ require('util/Logger.php');
 						});
 				}
 				catch (error) {
-						console.log(error);
-						}
-					}
-				});			
+					console.log(error);
+				}
+			}
+		});
 	}
-	
+
 	function handleDistrictCheckboxChange() {
 		var checkbox = document.getElementById("districtwiseCheckbox");
 		var type = document.getElementById("type").value;
 		if (checkbox.checked) {
 			document.getElementById("generateoptinizedplanbutton").style.display = "";
-			if(type=="intra"){
+			if (type == "intra") {
 				if (district_names["District_Name_All"].length > 0) {
 					var concatenatedNames = district_names["District_Name_All"].join(', ');
 					document.getElementById("resultdistrict").innerHTML = "Intra district movement is infeasble- " + concatenatedNames;
-					document.getElementById("resultdistrict").style.color = "#ADFF2F"; 
+					document.getElementById("resultdistrict").style.color = "#ADFF2F";
 				} else {
 					document.getElementById("resultdistrict").innerHTML = "Intra scenario in every district is feasible";
 					document.getElementById("resultdistrict").style.color = "#1111BB";
@@ -998,26 +1025,26 @@ require('util/Logger.php');
 			document.getElementById("generateoptinizedplanbutton").style.display = "none";
 		}
 	}
-	
+
 	let controller;
-	
+
 	function generateoptimizedplan() {
 		const formData = new FormData();
 		formData.append('month', document.getElementById("month").value);
 		formData.append('year', document.getElementById("year").value);
 		formData.append('type', document.getElementById("type").value);
-		
+
 		var checkboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
 		var selectedValues = [];
 
-		checkboxes.forEach(function(checkbox) {
-		  if (checkbox.checked) {
-			selectedValues.push(checkbox.value);
-		  }
+		checkboxes.forEach(function (checkbox) {
+			if (checkbox.checked) {
+				selectedValues.push(checkbox.value);
+			}
 		});
-		
-		
-		if(selectedValues.length==0){
+
+
+		if (selectedValues.length == 0) {
 			alert("Please Select Applicable Month");
 			var toggleButton = document.querySelector('.toggle');
 			toggleButton.classList.remove('toggle--on');
@@ -1025,12 +1052,12 @@ require('util/Logger.php');
 			toggleButton.setAttribute('data-content', 'Off');
 			return;
 		}
-		
+
 		controller = new AbortController();
 		const signal = controller.signal;
 
 		formData.append('applicable', selectedValues);
-		formData.append('username',document.getElementById("username").value);
+		formData.append('username', document.getElementById("username").value);
 		document.getElementById("processingPopup").style.display = "flex";
 		document.getElementById("cancel-request").style.display = "flex";
 		fetchPromise = fetch(pythonUrl + 'processFile', {
@@ -1046,25 +1073,25 @@ require('util/Logger.php');
 				document.getElementById("processingPopup").style.display = "none";
 				document.getElementById("cancel-request").style.display = "none";
 				var table = document.getElementById("optimisedtable");
-				
+
 				if ("status" in data) {
-					if(data["status"]==0){
+					if (data["status"] == 0) {
 						alert(data["message"]);
 						var toggleButton = document.querySelector('.toggle');
 						toggleButton.classList.remove('toggle--on');
 						toggleButton.classList.add('toggle--off');
-						toggleButton.setAttribute('data-content', 'Off');									
+						toggleButton.setAttribute('data-content', 'Off');
 						document.getElementById("processingPopup").style.display = "none";
 						document.getElementById("cancel-request").style.display = "none";
 						$("#optimisedtable").empty();
 						return;
 					}
 				}
-				
+
 				var thead = document.createElement("thead");
 				var headerRow = document.createElement("tr");
 				var headers = ["Scenario", "WH_Used", "FPS_Used", "Total_Allocation", "Total_QKM", "Average Distance"];
-				headers.forEach(function(headerText) {
+				headers.forEach(function (headerText) {
 					var th = document.createElement("th");
 					th.textContent = headerText;
 					headerRow.appendChild(th);
@@ -1080,14 +1107,14 @@ require('util/Logger.php');
 				var cell4 = newRow.insertCell(3);
 				var cell5 = newRow.insertCell(4);
 				var cell6 = newRow.insertCell(5);
-				
+
 				cell1.innerHTML = data["Scenario"];
 				cell2.innerHTML = data["WH_Used"];
 				cell3.innerHTML = formatNumberWithCommas(data["FPS_Used"]);
 				cell4.innerHTML = formatNumberWithCommas(data["Demand"]);
 				cell5.innerHTML = formatNumberWithCommas(data["Total_QKM"]);
 				cell6.innerHTML = formatNumberWithCommas(data["Average_Distance"]);
-				
+
 				var newRow = table.insertRow();
 
 				var cell1 = newRow.insertCell(0);
@@ -1103,42 +1130,42 @@ require('util/Logger.php');
 				cell4.innerHTML = (data["Demand_Baseline"]);
 				cell5.innerHTML = (data["Total_QKM_Baseline"]);
 				cell6.innerHTML = (data["Average_Distance_Baseline"]);
-				
-			table.style.width = "100%";
-			table.style.padding = "20px";
-			table.style.marginBottom = "50px";
-			table.style.fontSize = "20px"; 
-			table.style.marginLeft = "20px"; // Add margin-left
-			table.style.color = "black"; // Add margin-left
-			table.style.textAlign = "center";
 
-			var tableHeaders = table.getElementsByTagName('th');
-			for (var i = 0; i < tableHeaders.length; i++) {
-				tableHeaders[i].style.fontSize = "20px"; // Increase font size for headers
-			}
-			//toggleImage(); // Call the toggleImage function after displaying the table
-			var toggleButton = document.querySelector('.toggle');
-			toggleButton.classList.remove('toggle--on');
-			toggleButton.classList.add('toggle--off');
-			toggleButton.setAttribute('data-content', 'Off');
+				table.style.width = "100%";
+				table.style.padding = "20px";
+				table.style.marginBottom = "50px";
+				table.style.fontSize = "20px";
+				table.style.marginLeft = "20px"; // Add margin-left
+				table.style.color = "black"; // Add margin-left
+				table.style.textAlign = "center";
 
-			//toggleTableAndDownloadButton(); // Call the function to show/hide download button
-		})
-		.catch(error => {
-			alert("Error in Processing");
-			var toggleButton = document.querySelector('.toggle');
-			toggleButton.classList.remove('toggle--on');
-			toggleButton.classList.add('toggle--off');
-			toggleButton.setAttribute('data-content', 'Off');
+				var tableHeaders = table.getElementsByTagName('th');
+				for (var i = 0; i < tableHeaders.length; i++) {
+					tableHeaders[i].style.fontSize = "20px"; // Increase font size for headers
+				}
+				//toggleImage(); // Call the toggleImage function after displaying the table
+				var toggleButton = document.querySelector('.toggle');
+				toggleButton.classList.remove('toggle--on');
+				toggleButton.classList.add('toggle--off');
+				toggleButton.setAttribute('data-content', 'Off');
 
-			console.error('Error:', error);
-		})
-		.finally(() => {
-			document.getElementById("processingPopup").style.display = "none";
-			document.getElementById("cancel-request").style.display = "none";
-		});
+				//toggleTableAndDownloadButton(); // Call the function to show/hide download button
+			})
+			.catch(error => {
+				alert("Error in Processing");
+				var toggleButton = document.querySelector('.toggle');
+				toggleButton.classList.remove('toggle--on');
+				toggleButton.classList.add('toggle--off');
+				toggleButton.setAttribute('data-content', 'Off');
+
+				console.error('Error:', error);
+			})
+			.finally(() => {
+				document.getElementById("processingPopup").style.display = "none";
+				document.getElementById("cancel-request").style.display = "none";
+			});
 	}
-	
+
 	function cancelRequest() {
 		if (controller) {
 			controller.abort(); // Abort the fetch request using the AbortController
@@ -1157,316 +1184,316 @@ require('util/Logger.php');
 	}
 
 
-/*function toggleImage() {
-    var img = document.getElementById('level5Image');
-    img.style.display = (img.style.display === 'none' || img.style.display === '') ? 'block' : 'none';
-
-    // Log the current display values for image and download button
-    var downloadButton = document.getElementById('downloadButtonText');
-    if (downloadButton) {
-        downloadButton.style.display = (img.style.display === 'block') ? 'inline-block' : 'none';
-    }
-}*/
-
-
-function DownloadButton() {
-    const downloadButton = document.getElementById('download_button');
-    const table = document.getElementById('optimisedtable');
-
-    if (table.innerHTML.trim() !== '') {
-        downloadButton.style.display = '';
-    } else {
-        downloadButton.style.display = 'none';
-    }
-}
-
-let workbook = null;
-
-function readLocalExcelFile() {
-    const filePath = 'Backend/Backend/SCO_Tagging_Sheet.xlsx';
-    workbook = XLSX.readFile(filePath);
-    DownloadButton(); // Call DownloadButton after reading the file
-}
-
-function downloadExcelFile() {
-    if (!workbook) {
-        console.error('Workbook not initialized.');
-        return;
-    }
-
-    const wbout = XLSX.write(workbook, { bookType: 'xlsx', type: 'binary' });
-
-    function s2ab(s) {
-        const buf = new ArrayBuffer(s.length);
-        const view = new Uint8Array(buf);
-        for (let i = 0; i < s.length; i++) {
-            view[i] = s.charCodeAt(i) & 0xFF;
-        }
-        return buf;
-    }
-
-    const blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
-    const url = window.URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Template_SCO_IntraState_Punjab.xlsx';
-    a.click();
-    window.URL.revokeObjectURL(url);
-}
-
-function downloadFile(fileType) {
-    let filePath = '';
-    let fileName = '';
-
-    if (fileType === 'xlsx') {
-        filePath = 'template/Template_SCO_IntraState_Punjab.xlsx';
-        fileName = 'Template_SCO_IntraState_Punjab.xlsx';
-    } else if (fileType === 'pdf') {
-        filePath = 'template/Template_SCO_IntraState_Punjab.pdf';
-        fileName = 'Template_SCO_IntraState_Punjab.pdf';
-    }
-
-    fetch(filePath)
-        .then(response => response.blob())
-        .then(blob => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = fileName;
-            a.click();
-            window.URL.revokeObjectURL(url);
-        })
-        .catch(error => {
-            console.error('Error downloading file:', error);
-        });
-}
-
-function toggleState(element) {
-	if (element.classList.contains('toggle--off')) {
-		element.classList.remove('toggle--off');
-		element.classList.add('toggle--on');
-		element.setAttribute('data-content', 'On');
-		generateoptimizedplan();
-	} else {
-		element.classList.remove('toggle--on');
-		element.classList.add('toggle--off');
-		element.setAttribute('data-content', 'Off');
-		var table = document.getElementById("optimisedtable");
-		table.style.display = "none";
-	}
-}
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function handleStateCheckboxChange() {
-	var checkbox = document.getElementById("statewiseCheckbox");
-	document.getElementById("districtwiseCheckbox").checked = false;
+	/*function toggleImage() {
+		var img = document.getElementById('level5Image');
+		img.style.display = (img.style.display === 'none' || img.style.display === '') ? 'block' : 'none';
 	
-	if (checkbox.checked) {
-		const formData = new FormData();
-		document.getElementById("processingPopup").style.display = "flex";
-		fetch(pythonUrl + 'getGraphData', {
-			method: 'POST',
-			body: formData
-		})
-			.then(response => response.json())
-			.then(data => {
-				district_names = data.District_Name;
-				var totalCapacity = Object.values(data.District_Capacity).reduce((acc, capacity) => acc + capacity, 0);
-				var totalCapacity1 = Object.values(data.District_Capacity_FRice).reduce((acc, capacity) => acc + capacity, 0);
-				var totalDemandWheat = Object.values(data.District_Demand).reduce((acc, demand) => acc + demand, 0);
-				var totalDemandRice = Object.values(data.District_Demand_Rice).reduce((acc, demand_rice) => acc + demand_rice, 0);
-				var totalDemand = totalDemandWheat + totalDemandRice;
-				var totalcapacityfinal = totalCapacity + totalCapacity1;
+		// Log the current display values for image and download button
+		var downloadButton = document.getElementById('downloadButtonText');
+		if (downloadButton) {
+			downloadButton.style.display = (img.style.display === 'block') ? 'inline-block' : 'none';
+		}
+	}*/
 
 
+	function DownloadButton() {
+		const downloadButton = document.getElementById('download_button');
+		const table = document.getElementById('optimisedtable');
 
-				console.log("Total demand for wheat:", totalDemandWheat);
-				console.log("Total demand for rice:", totalDemandRice);
-				console.log("Total demand:", totalDemand);
+		if (table.innerHTML.trim() !== '') {
+			downloadButton.style.display = '';
+		} else {
+			downloadButton.style.display = 'none';
+		}
+	}
 
+	let workbook = null;
 
+	function readLocalExcelFile() {
+		const filePath = 'Backend/Backend/SCO_Tagging_Sheet.xlsx';
+		workbook = XLSX.readFile(filePath);
+		DownloadButton(); // Call DownloadButton after reading the file
+	}
 
-				
-				var month = document.getElementById("month").value;
+	function downloadExcelFile() {
+		if (!workbook) {
+			console.error('Workbook not initialized.');
+			return;
+		}
 
-				document.getElementById("totalFciDemand").innerHTML = "<span style='color: white; font-size: 14px;'>" + "Total Demand: " + totalDemand + " (Qtl)</span>";
-				document.getElementById("totalFciSupply").innerHTML = "<span style='color: white; font-size: 14px;'>" + "Total Supply: " + totalcapacityfinal + " (Qtl)</span>";
-				document.getElementById("selectedMonth").innerHTML = "<span style='color: white; font-size: 14px;'>" + "Selected Month: " + capitalizeFirstLetter(month) + "</span>";
+		const wbout = XLSX.write(workbook, { bookType: 'xlsx', type: 'binary' });
 
-				districtdata = data.District_Name;
+		function s2ab(s) {
+			const buf = new ArrayBuffer(s.length);
+			const view = new Uint8Array(buf);
+			for (let i = 0; i < s.length; i++) {
+				view[i] = s.charCodeAt(i) & 0xFF;
+			}
+			return buf;
+		}
 
-				if (totalcapacityfinal > 0 && totalDemand > 0) {
-					if (totalcapacityfinal >= totalDemand) {
-						// document.getElementById("result").innerHTML = "Optimisation can be done.";
-						document.getElementById("result").innerHTML = "<span style='font-weight: bold; font-size: 20px; color: green;'>Optimisation can be done.</span>";
-						document.getElementById("districtcheckbox").style.display = "block";
-					}
-					else {
-						// document.getElementById("result").innerHTML = "Optimiazation cannot be done infeasible solution";
-						document.getElementById("result").innerHTML = "<span style='font-weight: bold; font-size: 20px; color: red;'>Optimiazation cannot be done infeasible solution.</span>";
-						document.getElementById("districtcheckbox").style.display = "none";
-						document.getElementById("generateoptinizedplanbutton").style.display = "none";
-					}
-					
-					var type = document.getElementById("type").value;
-					if(type=="inter"){
-						document.getElementById("districtcheckbox").style.display = "none";
-					}else{
-						document.getElementById("districtcheckbox").style.display = "block";
-					}
+		const blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+		const url = window.URL.createObjectURL(blob);
 
-					// Get district names from the JSON data
-					var districtNamesCapacity = Object.keys(data.District_Capacity);
-					var districtNamesDemand = Object.keys(data.District_Demand);
-					
-					const unionSet = new Set([...districtNamesCapacity, ...districtNamesDemand]);
-					const unionArray = Array.from(unionSet);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = 'Template_SCO_IntraState_Punjab.xlsx';
+		a.click();
+		window.URL.revokeObjectURL(url);
+	}
 
-					// Get capacities and demands for each district
-					var capacities = unionArray.map(district => data.District_Capacity[district]);
-					var capacities1 = unionArray.map(district => data.District_Capacity_FRice[district]);
-					var demands = unionArray.map(district => data.District_Demand[district]);
-					var demands_rice = unionArray.map(district => data.District_Demand_Rice[district]);
+	function downloadFile(fileType) {
+		let filePath = '';
+		let fileName = '';
 
-					// Generate newData object
-					var newData = {
-						labels: unionArray,
-						datasets: [
-							{
-								label: 'Wheat Demand',
-								backgroundColor: '#EFB838',
-								data: demands
-							},
-							{
-								label: 'FRice Demand',
-								backgroundColor: '#C4281C',
-								data: demands_rice
-							},
-							{
-								label: 'Wheat Quantity',
-								backgroundColor: '#04AFEC',
-								data: capacities
-							},
-							{
-								label: 'FRice Quantity',
-								backgroundColor: '#CC8E69',
-								data: capacities1
-							}
-						]
-					};
+		if (fileType === 'xlsx') {
+			filePath = 'template/Template_SCO_IntraState_Punjab.xlsx';
+			fileName = 'Template_SCO_IntraState_Punjab.xlsx';
+		} else if (fileType === 'pdf') {
+			filePath = 'template/Template_SCO_IntraState_Punjab.pdf';
+			fileName = 'Template_SCO_IntraState_Punjab.pdf';
+		}
 
-
-					// Update the chart with new data
-					myChart.data = newData;
-					myChart.update();
-					document.getElementById("processingPopup").style.display = "none";
-					if(firstStart==0){
-						document.getElementById("districtwiseCheckbox").checked = true;
-						handleDistrictCheckboxChange();
-						firstStart = 1;
-					}else{
-						var type = document.getElementById("type").value;
-						if(type=="inter"){
-							document.getElementById("generateoptinizedplanbutton").style.display = "block";
-						}
-					}
-				}
-				else {
-					document.getElementById("result").innerHTML = "Optimisation cannot be provided.";
-					document.getElementById("result").style.color = "red";
-					document.getElementById("districtcheckbox").style.display = "none";
-					document.getElementById("processingPopup").style.display = "none";
-					document.getElementById("generateoptinizedplanbutton").style.display = "none";
-				}
-
+		fetch(filePath)
+			.then(response => response.blob())
+			.then(blob => {
+				const url = window.URL.createObjectURL(blob);
+				const a = document.createElement('a');
+				a.href = url;
+				a.download = fileName;
+				a.click();
+				window.URL.revokeObjectURL(url);
 			})
 			.catch(error => {
-				console.error('Error:', error);
-				alert("Error in Fetching Data");
-				document.getElementById("processingPopup").style.display = "none";
+				console.error('Error downloading file:', error);
 			});
+	}
 
-	} else {
-		document.getElementById("result").innerHTML = "";
-		document.getElementById("totalFciDemand").innerHTML = "";
-		document.getElementById("totalFciSupply").innerHTML = "";
+	function toggleState(element) {
+		if (element.classList.contains('toggle--off')) {
+			element.classList.remove('toggle--off');
+			element.classList.add('toggle--on');
+			element.setAttribute('data-content', 'On');
+			generateoptimizedplan();
+		} else {
+			element.classList.remove('toggle--on');
+			element.classList.add('toggle--off');
+			element.setAttribute('data-content', 'Off');
+			var table = document.getElementById("optimisedtable");
+			table.style.display = "none";
+		}
+	}
+
+	function capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+	function handleStateCheckboxChange() {
+		var checkbox = document.getElementById("statewiseCheckbox");
 		document.getElementById("districtwiseCheckbox").checked = false;
-		document.getElementById("districtcheckbox").style.display = "none";
-		document.getElementById("processingPopup").style.display = "none";
-		document.getElementById("generateoptinizedplanbutton").style.display = "none";
+
+		if (checkbox.checked) {
+			const formData = new FormData();
+			document.getElementById("processingPopup").style.display = "flex";
+			fetch(pythonUrl + 'getGraphData', {
+				method: 'POST',
+				body: formData
+			})
+				.then(response => response.json())
+				.then(data => {
+					district_names = data.District_Name;
+					var totalCapacity = Object.values(data.District_Capacity).reduce((acc, capacity) => acc + capacity, 0);
+					var totalCapacity1 = Object.values(data.District_Capacity_FRice).reduce((acc, capacity) => acc + capacity, 0);
+					var totalDemandWheat = Object.values(data.District_Demand).reduce((acc, demand) => acc + demand, 0);
+					var totalDemandRice = Object.values(data.District_Demand_Rice).reduce((acc, demand_rice) => acc + demand_rice, 0);
+					var totalDemand = totalDemandWheat + totalDemandRice;
+					var totalcapacityfinal = totalCapacity + totalCapacity1;
+
+
+
+					console.log("Total demand for wheat:", totalDemandWheat);
+					console.log("Total demand for rice:", totalDemandRice);
+					console.log("Total demand:", totalDemand);
+
+
+
+
+					var month = document.getElementById("month").value;
+
+					document.getElementById("totalFciDemand").innerHTML = "<span style='color: white; font-size: 14px;'>" + "Total Demand: " + totalDemand + " (Qtl)</span>";
+					document.getElementById("totalFciSupply").innerHTML = "<span style='color: white; font-size: 14px;'>" + "Total Supply: " + totalcapacityfinal + " (Qtl)</span>";
+					document.getElementById("selectedMonth").innerHTML = "<span style='color: white; font-size: 14px;'>" + "Selected Month: " + capitalizeFirstLetter(month) + "</span>";
+
+					districtdata = data.District_Name;
+
+					if (totalcapacityfinal > 0 && totalDemand > 0) {
+						if (totalcapacityfinal >= totalDemand) {
+							// document.getElementById("result").innerHTML = "Optimisation can be done.";
+							document.getElementById("result").innerHTML = "<span style='font-weight: bold; font-size: 20px; color: green;'>Optimisation can be done.</span>";
+							document.getElementById("districtcheckbox").style.display = "block";
+						}
+						else {
+							// document.getElementById("result").innerHTML = "Optimiazation cannot be done infeasible solution";
+							document.getElementById("result").innerHTML = "<span style='font-weight: bold; font-size: 20px; color: red;'>Optimiazation cannot be done infeasible solution.</span>";
+							document.getElementById("districtcheckbox").style.display = "none";
+							document.getElementById("generateoptinizedplanbutton").style.display = "none";
+						}
+
+						var type = document.getElementById("type").value;
+						if (type == "inter") {
+							document.getElementById("districtcheckbox").style.display = "none";
+						} else {
+							document.getElementById("districtcheckbox").style.display = "block";
+						}
+
+						// Get district names from the JSON data
+						var districtNamesCapacity = Object.keys(data.District_Capacity);
+						var districtNamesDemand = Object.keys(data.District_Demand);
+
+						const unionSet = new Set([...districtNamesCapacity, ...districtNamesDemand]);
+						const unionArray = Array.from(unionSet);
+
+						// Get capacities and demands for each district
+						var capacities = unionArray.map(district => data.District_Capacity[district]);
+						var capacities1 = unionArray.map(district => data.District_Capacity_FRice[district]);
+						var demands = unionArray.map(district => data.District_Demand[district]);
+						var demands_rice = unionArray.map(district => data.District_Demand_Rice[district]);
+
+						// Generate newData object
+						var newData = {
+							labels: unionArray,
+							datasets: [
+								{
+									label: 'Wheat Demand',
+									backgroundColor: '#EFB838',
+									data: demands
+								},
+								{
+									label: 'FRice Demand',
+									backgroundColor: '#C4281C',
+									data: demands_rice
+								},
+								{
+									label: 'Wheat Quantity',
+									backgroundColor: '#04AFEC',
+									data: capacities
+								},
+								{
+									label: 'FRice Quantity',
+									backgroundColor: '#CC8E69',
+									data: capacities1
+								}
+							]
+						};
+
+
+						// Update the chart with new data
+						myChart.data = newData;
+						myChart.update();
+						document.getElementById("processingPopup").style.display = "none";
+						if (firstStart == 0) {
+							document.getElementById("districtwiseCheckbox").checked = true;
+							handleDistrictCheckboxChange();
+							firstStart = 1;
+						} else {
+							var type = document.getElementById("type").value;
+							if (type == "inter") {
+								document.getElementById("generateoptinizedplanbutton").style.display = "block";
+							}
+						}
+					}
+					else {
+						document.getElementById("result").innerHTML = "Optimisation cannot be provided.";
+						document.getElementById("result").style.color = "red";
+						document.getElementById("districtcheckbox").style.display = "none";
+						document.getElementById("processingPopup").style.display = "none";
+						document.getElementById("generateoptinizedplanbutton").style.display = "none";
+					}
+
+				})
+				.catch(error => {
+					console.error('Error:', error);
+					alert("Error in Fetching Data");
+					document.getElementById("processingPopup").style.display = "none";
+				});
+
+		} else {
+			document.getElementById("result").innerHTML = "";
+			document.getElementById("totalFciDemand").innerHTML = "";
+			document.getElementById("totalFciSupply").innerHTML = "";
+			document.getElementById("districtwiseCheckbox").checked = false;
+			document.getElementById("districtcheckbox").style.display = "none";
+			document.getElementById("processingPopup").style.display = "none";
+			document.getElementById("generateoptinizedplanbutton").style.display = "none";
+		}
 	}
-}
 
-var currentDate = new Date();
-var currentMonth = currentDate.getMonth();
-var currentYear = currentDate.getFullYear();
-var nextYear = currentYear + 1;
-var monthNames = ['jan', 'feb', 'march', 'april', 'may', 'june', 'july', 'aug', 'sept', 'oct', 'nov', 'dec'];
-var currentMonthValue = monthNames[currentMonth];
-var dropdown_year = document.getElementById('year');
-const currentYearOption = document.createElement("option");
-currentYearOption.value = currentYear;
-currentYearOption.textContent = currentYear;
-currentYearOption.style.fontWeight = "bold";
-currentYearOption.style.color = "#000";
-dropdown_year.appendChild(currentYearOption);
-currentYearOption.selected = false;
-const nextYearOption = document.createElement("option");
-nextYearOption.value = nextYear;
-nextYearOption.textContent = nextYear;
-nextYearOption.style.fontWeight = "bold";
-nextYearOption.style.color = "#000";
-dropdown_year.appendChild(nextYearOption);
-nextYearOption.selected = true
-var dropdown = document.getElementById('month');
-var removeIndices = [];
-for (var i = 0; i < dropdown.options.length; i++) {
-	if (dropdown.options[i].value === currentMonthValue) {
-        dropdown.options[i].selected = true;
-    }
-	else{
-		removeIndices.push(i);
+	var currentDate = new Date();
+	var currentMonth = currentDate.getMonth();
+	var currentYear = currentDate.getFullYear();
+	var nextYear = currentYear + 1;
+	var monthNames = ['jan', 'feb', 'march', 'april', 'may', 'june', 'july', 'aug', 'sept', 'oct', 'nov', 'dec'];
+	var currentMonthValue = monthNames[currentMonth];
+	var dropdown_year = document.getElementById('year');
+	const currentYearOption = document.createElement("option");
+	currentYearOption.value = currentYear;
+	currentYearOption.textContent = currentYear;
+	currentYearOption.style.fontWeight = "bold";
+	currentYearOption.style.color = "#000";
+	dropdown_year.appendChild(currentYearOption);
+	currentYearOption.selected = false;
+	const nextYearOption = document.createElement("option");
+	nextYearOption.value = nextYear;
+	nextYearOption.textContent = nextYear;
+	nextYearOption.style.fontWeight = "bold";
+	nextYearOption.style.color = "#000";
+	dropdown_year.appendChild(nextYearOption);
+	nextYearOption.selected = true
+	var dropdown = document.getElementById('month');
+	var removeIndices = [];
+	for (var i = 0; i < dropdown.options.length; i++) {
+		if (dropdown.options[i].value === currentMonthValue) {
+			dropdown.options[i].selected = true;
+		}
+		else {
+			removeIndices.push(i);
+		}
 	}
-}
-for (var j = removeIndices.length - 1; j >= 0; j--) {
-    dropdown.remove(removeIndices[j]);
-}
+	for (var j = removeIndices.length - 1; j >= 0; j--) {
+		dropdown.remove(removeIndices[j]);
+	}
 
-var dropdown = document.getElementById('year');
-for (var i = 0; i < dropdown.options.length; i++) {
-    if (dropdown.options[i].value == currentYear) {
-        dropdown.options[i].selected = true;
-        break;
-    }
-}
+	var dropdown = document.getElementById('year');
+	for (var i = 0; i < dropdown.options.length; i++) {
+		if (dropdown.options[i].value == currentYear) {
+			dropdown.options[i].selected = true;
+			break;
+		}
+	}
 
-var dropdown = document.getElementById('type');
-var currentType = "inter"
-for (var i = 0; i < dropdown.options.length; i++) {
-    if (dropdown.options[i].value === currentType) {
-        dropdown.options[i].selected = true;
-        break;
-    }
-}
+	var dropdown = document.getElementById('type');
+	var currentType = "inter"
+	for (var i = 0; i < dropdown.options.length; i++) {
+		if (dropdown.options[i].value === currentType) {
+			dropdown.options[i].selected = true;
+			break;
+		}
+	}
 
-var expanded = false;
+	var expanded = false;
 
-function showCheckboxes() {
-  var checkboxes = document.getElementById("checkboxes");
-  if (!expanded) {
-    checkboxes.style.display = "block";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
-}
-var firstStart = 0;
-fetchFromDb();
+	function showCheckboxes() {
+		var checkboxes = document.getElementById("checkboxes");
+		if (!expanded) {
+			checkboxes.style.display = "block";
+			expanded = true;
+		} else {
+			checkboxes.style.display = "none";
+			expanded = false;
+		}
+	}
+	var firstStart = 0;
+	fetchFromDb();
 
 </script>
 </body>

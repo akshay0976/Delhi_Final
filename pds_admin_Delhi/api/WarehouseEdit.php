@@ -3,14 +3,25 @@
 require('../util/Connection.php');
 require('../structures/Warehouse.php');
 require('../util/SessionFunction.php');
-require('../structures/Login.php');
 require('../util/Logger.php');
+require('../structures/Login.php');
+require('../util/Security.php');
+require ('../util/Encryption.php');
+$nonceValue = 'nonce_value';
 
 if(!SessionCheck()){
 	return;
 }
 
 require('Header.php');
+
+if(empty($_POST)){
+	die("Something went wrong.");
+}
+
+if(empty($_POST)){
+	die("Something went wrong.");
+}
 
 function formatName($name) {
 	$name = preg_replace('/[^a-zA-Z0-9_ ]/', '', $name);
@@ -44,21 +55,17 @@ function isStringNumber($stringValue) {
 
 $person = new Login;
 $person->setUsername($_POST["username"]);
-$person->setPassword($_POST["password"]);
+$Encryption = new Encryption();
+$person->setPassword($Encryption->decrypt($_POST["password"], $nonceValue));
 
 if($_SESSION['user']!=$person->getUsername()){
 	echo "User is logged in with different username and password";
 	return;
 }
 
-$query = "SELECT * FROM login WHERE username='".$person->getUsername()."' AND password='".$person->getPassword()."'";
+$query = "SELECT * FROM login WHERE username='".$person->getUsername()."'";
 $result = mysqli_query($con,$query);
-$numrows = mysqli_num_rows($result);
-
-if($numrows == 0){
-	echo "Error : Password or Username is incorrect";
-	return;
-}
+$row = mysqli_fetch_assoc($result);
 
 if(!isValidCoordinate($_POST["latitude"],'latitude') or !isValidCoordinate($_POST["longitude"],'longitude')){
 	echo "Error : Check Latitude and Longitude Value";
@@ -66,15 +73,12 @@ if(!isValidCoordinate($_POST["latitude"],'latitude') or !isValidCoordinate($_POS
 }
 
 if(!isStringNumber($_POST["storage"])){
-	echo "Error : Check Wheat Quantity Value";
-	exit();
-}
-if(!isStringNumber($_POST["storage1"])){
-	echo "Error : Check FRice Quantity Value";
+	echo "Error : Check Storage Value";
 	exit();
 }
 
-
+$dbHashedPassword = $row['password'];
+if(password_verify($person->getPassword(), $dbHashedPassword)){
 $district = formatName($_POST["district"]);
 $latitude = $_POST["latitude"];
 $longitude = $_POST["longitude"];
@@ -120,9 +124,11 @@ mysqli_close($con);
 
 $filteredPost = $_POST;
 unset($filteredPost['username'], $filteredPost['password']);
-writeLog("User ->" ." Warehouse Edit->". $_SESSION['user'] . "| Requested JSON -> " . json_encode($filteredPost));
-
+writeLog("User ->" ." Warehouse Edit ->". $_SESSION['user'] . "| Requested JSON -> " . json_encode($filteredPost));
 echo "<script>window.location.href = '../Warehouse.php';</script>";
-
+} 
+else{
+    echo "Error : Password or Username is incorrect";
+}
 ?>
 <?php require('Fullui.php');  ?>

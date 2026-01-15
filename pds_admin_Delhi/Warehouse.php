@@ -14,6 +14,8 @@ require('Header.php');
     /* Optional: Font size for table header */
 }
     </style>
+<script src="crypto-js/crypto-js.js"></script>
+<script src="js/Encryption.js"></script>
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
@@ -226,7 +228,10 @@ require('Header.php');
 			var username = document.getElementById('username').value;
 			var password = document.getElementById('password').value;
 			var temp_id = document.getElementById('deleteid').value;
-			post({uid: temp_id,username:username,password:password} ,"api/WarehouseDelete.php");
+			var nonceValue = "nonce_value";
+			let encryption = new Encryption();
+			var encrypted = encryption.encrypt(password, nonceValue);
+			post({uid: temp_id,username:username,password:encrypted} ,"api/WarehouseDelete.php");
 		}
 		
 		function hidePopup() {

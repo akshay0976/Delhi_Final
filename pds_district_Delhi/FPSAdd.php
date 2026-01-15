@@ -6,6 +6,19 @@ require('Header.php');
 $district = ucfirst($_SESSION["district_district"]);
 
 ?>
+<script src="crypto-js/crypto-js.js"></script>
+<script src="js/Encryption.js"></script>
+
+<script>
+	function verifyCaptcha() {
+		var readableString = document.getElementById("password").value;
+		var nonceValue = "nonce_value";
+		let encryption = new Encryption();
+		var encrypted = encryption.encrypt(readableString, nonceValue);
+		document.getElementById("password").value = encrypted;
+		document.getElementById("fpsform").submit();
+	}
+</script>
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
@@ -21,7 +34,7 @@ $district = ucfirst($_SESSION["district_district"]);
                     <div class="row">
                         <div class="col-md-12">
 
-                            <form action="api/FPSAdd.php" method="POST" class="form-horizontal" enctype = "multipart/form-data">
+                            <form id="fpsform" action="api/FPSAdd.php" method="POST" class="form-horizontal" enctype = "multipart/form-data">
                             <div class="panel panel-default">
                                <div class="panel-body">
                                     <p>Fill this form to add new FPS.</p>
@@ -108,7 +121,7 @@ $district = ucfirst($_SESSION["district_district"]);
 											
 											
 											<div class="form-group">
-                                                <label class="col-md-3 control-label">Demand of Wheat in Quintals*</label>
+                                                <label class="col-md-3 control-label">Demand of FRice in Quintals*</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-info"></span></span>
@@ -119,7 +132,7 @@ $district = ucfirst($_SESSION["district_district"]);
                                             </div>
 											
 											<div class="form-group">
-                                                <label class="col-md-3 control-label">Demand of FRice in Quintals*</label>
+                                                <label class="col-md-3 control-label">Demand of Rice in Quintals*</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-info"></span></span>
@@ -173,7 +186,7 @@ $district = ucfirst($_SESSION["district_district"]);
 											
                                         </div>
 										
-										<center><button class="btn btn-primary">Verify</button></center>
+										<center><button class="btn btn-primary" onclick="verifyCaptcha()">Verify</button></center>
 								</div>
                             </div>
                             </form>

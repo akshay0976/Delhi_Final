@@ -61,7 +61,19 @@ else{
 		}
 	}
 </script>
-                <!-- START BREADCRUMB -->
+<script src="crypto-js/crypto-js.js"></script>
+<script src="js/Encryption.js"></script>
+
+<script>
+	function verifyCaptcha() {
+		var readableString = document.getElementById("password").value;
+		var nonceValue = "nonce_value";
+		let encryption = new Encryption();
+		var encrypted = encryption.encrypt(readableString, nonceValue);
+		document.getElementById("password").value = encrypted;
+	}
+</script>
+             <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="FPS.php">Home</a></li>
                     <li class="active">FPS Edit</li>
@@ -159,7 +171,7 @@ else{
                                             </div>
 											
 											<div class="form-group">
-                                                <label class="col-md-3 control-label">Demand of Wheat in Quintals*</label>
+                                                <label class="col-md-3 control-label">Demand of FRice in Quintals*</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-info"></span></span>
@@ -169,7 +181,7 @@ else{
                                                 </div>
                                             </div>
 											<div class="form-group">
-                                                <label class="col-md-3 control-label">Demand of FRice in Quintals*</label>
+                                                <label class="col-md-3 control-label">Demand of Rice in Quintals*</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-info"></span></span>
@@ -211,7 +223,7 @@ else{
                                                 </div>
                                             </div>
                                         </div>
-										<center><button class="btn btn-primary">Verify</button></center>
+										<center><button class="btn btn-primary" onclick="verifyCaptcha()">Verify</button></center>
 								</div>
                             </div>
                             </form>

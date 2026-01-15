@@ -5,6 +5,10 @@ require('../structures/FPS.php');
 require('../util/SessionFunction.php');
 require('../structures/Login.php');
 require('../util/Logger.php');
+require('../util/Security.php');
+require ('../util/Encryption.php');
+$nonceValue = 'nonce_value';
+
 if(!SessionCheck()){
 	return;
 }
@@ -43,21 +47,17 @@ function isStringNumber($stringValue) {
 
 $person = new Login;
 $person->setUsername($_POST["username"]);
-$person->setPassword($_POST["password"]);
+$Encryption = new Encryption();
+$person->setPassword($Encryption->decrypt($_POST["password"], $nonceValue));
 
 if($_SESSION['district_user']!=$person->getUsername()){
 	echo "User is logged in with different username and password";
 	return;
 }
 
-$query = "SELECT * FROM login WHERE username='".$person->getUsername()."' AND password='".$person->getPassword()."'";
+$query = "SELECT * FROM login WHERE username='".$person->getUsername()."'";
 $result = mysqli_query($con,$query);
-$numrows = mysqli_num_rows($result);
-
-if($numrows == 0){
-	echo "Error : Password or Username is incorrect";
-	return;
-}
+$row = mysqli_fetch_assoc($result);
 
 if(!isValidCoordinate($_POST["latitude"],'latitude') or !isValidCoordinate($_POST["longitude"],'longitude')){
 	echo "Error : Check Latitude and Longitude Value";
@@ -74,6 +74,8 @@ if(!isStringNumber($_POST["demand_rice"])){
 	exit();
 }
 
+$dbHashedPassword = $row['password'];
+if(password_verify($person->getPassword(), $dbHashedPassword)){
 $district = formatName($_POST["district"]);
 $latitude = $_POST["latitude"];
 $longitude = $_POST["longitude"];
@@ -102,11 +104,15 @@ $query = $FPS->update($FPS);
 mysqli_query($con, $query);
 
 mysqli_close($con);
+
 $filteredPost = $_POST;
 unset($filteredPost['username'], $filteredPost['password']);
 writeLog("District User ->" ." FPS Edit->". $_SESSION['district_user'] . "|       Requested JSON -> " . json_encode($filteredPost));
 
 echo "<script>window.location.href = '../FPS.php';</script>";
-
+} 
+else{
+    echo "Error : Password or Username is incorrect";
+}
 ?>
 <?php require('Fullui.php');  ?>
